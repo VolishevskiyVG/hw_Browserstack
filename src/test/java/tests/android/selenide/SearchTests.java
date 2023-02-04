@@ -16,10 +16,10 @@ public class SearchTests extends TestBase {
     void searchTest() {
         step("Type search", () -> {
             $(accessibilityId("Search Wikipedia")).click();
-            $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("BrowserStack");
+            $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("starwars");
         });
         step("Verify content found", () ->
-                $$(id("org.wikipedia.alpha:id/page_list_item_title"))
+                $$(id("org.wikipedia.alpha:id/view_card_header_title"))
                         .shouldHave(sizeGreaterThan(0)));
     }
 }

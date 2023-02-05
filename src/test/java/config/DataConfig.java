@@ -2,12 +2,9 @@ package config;
 
 import org.aeonbits.owner.Config;
 
-import static org.aeonbits.owner.Config.LoadType.MERGE;
 
-//@Config.Sources({"classpath:conf/browserstack.properties"})
-@Config.LoadPolicy(MERGE)
-@Config.Sources({"system:properties",
-        "classpath:config/browserstack.properties"})
+@Config.Sources({
+        "classpath:remote.properties"})
 public interface DataConfig extends Config {
 
     @Key("username")

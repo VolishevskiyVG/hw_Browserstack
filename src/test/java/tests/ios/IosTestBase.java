@@ -1,8 +1,9 @@
-package tests.android.selenide;
+package tests.ios;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
-import drivers.BrowserstackDriver;
+
+import drivers.IosBrowserstackDriver;
 import helpers.Attach;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
@@ -11,11 +12,11 @@ import org.junit.jupiter.api.BeforeEach;
 
 import static com.codeborne.selenide.Selenide.*;
 
-class TestBase {
+class IosTestBase {
 
     @BeforeAll
     static void beforeAll() {
-        Configuration.browser = BrowserstackDriver.class.getName();
+        Configuration.browser = IosBrowserstackDriver.class.getName();
         Configuration.browserSize = null;
     }
 

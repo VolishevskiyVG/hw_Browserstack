@@ -1,16 +1,22 @@
 package drivers;
 
 import com.codeborne.selenide.WebDriverProvider;
+import config.DataConfig;
 import lombok.SneakyThrows;
+import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import javax.annotation.Nonnull;
+import java.net.MalformedURLException;
 import java.net.URL;
 
+import static drivers.BrowserstackDriver.CONFIG;
+
 public class IosBrowserstackDriver implements WebDriverProvider {
+
 
     @SneakyThrows
     @Override
@@ -18,11 +24,13 @@ public class IosBrowserstackDriver implements WebDriverProvider {
         MutableCapabilities mutableCapabilities = new MutableCapabilities();
         mutableCapabilities.merge(capabilities);
 
-        mutableCapabilities.setCapability("browserstack.user", "bsuser_pSj0on");
-        mutableCapabilities.setCapability("browserstack.key", "kps8pxneCy8SWuYeqVyb");
+        DataConfig config = ConfigFactory.create(DataConfig.class, System.getProperties());
+
+        mutableCapabilities.setCapability("browserstack.user", config.username());
+        mutableCapabilities.setCapability("browserstack.key", config.password());
 
         // Set URL of the application under test
-        mutableCapabilities.setCapability("app", "bs://444bd0308813ae0dc236f8cd461c02d3afa7901d");
+        mutableCapabilities.setCapability("app", config.app());
 
         // Specify device and os_version for testing
         mutableCapabilities.setCapability("device", "iPhone XS");
@@ -36,8 +44,15 @@ public class IosBrowserstackDriver implements WebDriverProvider {
 
         // Initialise the remote Webdriver using BrowserStack remote URL
         // and desired capabilities defined above
-        return new RemoteWebDriver(new URL("http://hub.browserstack.com/wd/hub"), mutableCapabilities);
+        return new RemoteWebDriver(getRemoteWebDriverUrl(), mutableCapabilities);
     }
+        private URL getRemoteWebDriverUrl() {
+            try {
+                return new URL(CONFIG.url());
+            } catch (MalformedURLException e) {
+                throw new RuntimeException(e);
+            }
+        }
 }
 
 

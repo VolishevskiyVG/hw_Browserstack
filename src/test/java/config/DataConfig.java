@@ -13,8 +13,11 @@ public interface DataConfig extends Config {
     @Key("password")
     String password();
 
-    @Key("app")
-    String app();
+    @Key("appAndroid")
+    String appAndroid();
+
+    @Key("appIos")
+    String appIos();
 
     @Key("url")
     String url();

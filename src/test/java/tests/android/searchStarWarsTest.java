@@ -1,4 +1,4 @@
-package tests.android.selenide;
+package tests.android;
 
 import org.junit.jupiter.api.Test;
 
@@ -18,6 +18,6 @@ public class searchStarWarsTest extends AndroidTestBase {
         });
         step("Verify content found", () ->
                 $(id("org.wikipedia.alpha:id/view_card_header_title")).shouldHave(text("In the news")));
-                        //.shouldHave(sizeGreaterThan(0)));
+
     }
 }

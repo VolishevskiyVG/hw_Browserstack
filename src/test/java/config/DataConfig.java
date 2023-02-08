@@ -21,4 +21,12 @@ public interface DataConfig extends Config {
 
     @Key("url")
     String url();
+    @Key("deviceAndroid")
+    String deviceAndroid();
+    @Key("deviceIos")
+    String deviceIos();
+    @Key("os_versionAndroid")
+    String os_versionAndroid();
+    @Key("os_versionIos")
+    String os_versionIos();
 }

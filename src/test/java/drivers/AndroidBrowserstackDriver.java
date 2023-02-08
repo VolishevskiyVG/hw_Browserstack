@@ -31,8 +31,8 @@ public class AndroidBrowserstackDriver implements WebDriverProvider {
 
         mutableCapabilities.setCapability("app", config.appAndroid());
 
-        mutableCapabilities.setCapability("device", "Google Pixel 3");
-        mutableCapabilities.setCapability("os_version", "9.0");
+        mutableCapabilities.setCapability("device", config.deviceAndroid());
+        mutableCapabilities.setCapability("os_version", config.os_versionAndroid());
 
 
         mutableCapabilities.setCapability("project", "First Java Project");

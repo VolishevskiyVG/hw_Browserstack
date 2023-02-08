@@ -33,8 +33,8 @@ public class IosBrowserstackDriver implements WebDriverProvider {
         mutableCapabilities.setCapability("app", config.appIos());
 
 
-        mutableCapabilities.setCapability("device", "iPhone XS");
-        mutableCapabilities.setCapability("os_version", "12");
+        mutableCapabilities.setCapability("device", config.deviceIos());
+        mutableCapabilities.setCapability("os_version", config.os_versionIos());
 
 
         // Set other BrowserStack capabilities

@@ -8,7 +8,7 @@ import static io.appium.java_client.AppiumBy.accessibilityId;
 import static io.qameta.allure.Allure.step;
 import static org.openqa.selenium.By.id;
 
-public class searchStarWarsTest extends AndroidTestBase {
+public class SearchStarWarsTest extends AndroidTestBase {
 
     @Test
     void searchTest() {

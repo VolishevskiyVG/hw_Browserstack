@@ -14,8 +14,10 @@ import javax.annotation.Nonnull;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+//import static config.Config.CONFIG;
+
 public class AndroidBrowserstackDriver implements WebDriverProvider {
-    public static final DataConfig CONFIG = ConfigFactory.create(DataConfig.class, System.getProperties());
+    static DataConfig config = ConfigFactory.create(DataConfig.class);
 
     @SneakyThrows
     @Override
@@ -45,7 +47,7 @@ public class AndroidBrowserstackDriver implements WebDriverProvider {
 
     private URL getRemoteWebDriverUrl() {
         try {
-            return new URL(CONFIG.url());
+            return new URL(config.url());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }

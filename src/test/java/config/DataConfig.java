@@ -29,4 +29,18 @@ public interface DataConfig extends Config {
     String os_versionAndroid();
     @Key("os_versionIos")
     String os_versionIos();
+    @Key("localUrl")
+    String localUrl();
+    @Key("localVersion")
+    String localVersion();
+    @Key("localDevice")
+    String localDevice();
+    @Key("localAppPackage")
+    String localAppPackage();
+    @Key("localAppActivity")
+    String localAppActivity();
+    @Key("localAppPath")
+    String localAppPath();
+    @Key("localPlatformName")
+    String localPlatformName();
 }

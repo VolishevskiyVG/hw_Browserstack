@@ -11,7 +11,7 @@ import org.junit.jupiter.api.BeforeEach;
 
 import static com.codeborne.selenide.Selenide.*;
 
-public class LocalTestBase {
+class LocalTestBase {
     @BeforeAll
     static void beforeAll() {
         Configuration.browser = LocalAndroidDriver.class.getName();
